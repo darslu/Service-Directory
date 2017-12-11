@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-{!! Form::open([ 'action' => 'HomePageController@index', 'method' => 'get']) !!}
+
+{!! Form::open([ 'action' => 'HomePageController@table', 'method' => 'get']) !!}
 
     <div class="container">
         <div class="col-xs-2 form-inline">

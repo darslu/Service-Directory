@@ -34,6 +34,7 @@
                         @endcan
 
                         <th>@lang('quickadmin.categories.fields.name')</th>
+                        <th>Icon</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -51,6 +52,7 @@
                                 @endcan
 
                                 <td field-key='name'>{{ $category->name }}</td>
+                                <td field-key='icon'>{{ $category->icon }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('category_delete')

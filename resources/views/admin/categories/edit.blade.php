@@ -23,6 +23,18 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('icon', trans('Icon').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('icon', old('icon'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('icon'))
+                        <p class="help-block">
+                            {{ $errors->first('icon') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

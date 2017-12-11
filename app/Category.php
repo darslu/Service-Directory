@@ -14,7 +14,12 @@ class Category extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'icon'];
+
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class, 'category_company')->withTrashed();
+    }
     
     
     

@@ -1,6 +1,8 @@
 <?php
  Route::get('/', 'HomePageController@index');
-//  Route::get('/', function () { return redirect('/table'); });
+ Route::get('search', 'HomePageController@table');
+ Route::get('categories/{id}', 'HomePageController@show');
+ Route::get('company/{id}', 'HomePageController@company');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
@@ -36,8 +38,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('companies_mass_destroy', ['uses' => 'Admin\CompaniesController@massDestroy', 'as' => 'companies.mass_destroy']);
     Route::post('companies_restore/{id}', ['uses' => 'Admin\CompaniesController@restore', 'as' => 'companies.restore']);
     Route::delete('companies_perma_del/{id}', ['uses' => 'Admin\CompaniesController@perma_del', 'as' => 'companies.perma_del']);
-
-
-
  
 });
+
+
