@@ -81,7 +81,7 @@
 				<div class="product-grid-list">
 					<div class="row mt-30">
                          
-                        @foreach ($category->companies as $singleCompany)
+                        @foreach ($companies as $singleCompany)
                             <div class="col-sm-12 col-lg-4 col-md-6">
                             
                                 <!-- product card -->
@@ -108,7 +108,8 @@
                         @endforeach
 					</div>
 				</div>
-                {{ $companies->links() }}
+                
+                {{ $companies->render() }}
 			</div>
 		</div>
 	</div>

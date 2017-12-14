@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,6 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeed::class);
         $this->call(UserSeed::class);
         $this->call(CategorySeed::class);
+        $this->call(CitySeed::class);
+        $this->call(CompanySeed::class);
 
     }
 }

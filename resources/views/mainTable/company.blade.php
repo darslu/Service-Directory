@@ -83,6 +83,10 @@
 								<h3 class="tab-title">About company</h3>
 								<p>{{ $company->description}}</p>
 							</div>
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+								<h3 class="tab-title">Where to find</h3>
+								<p>{{ $company->address}}</p>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -111,7 +111,7 @@
                         @endif
                     </div>
 				</div>
-                {{ $companies->links() }}
+            {{ $companies->appends(Request::all())->links() }}
 			</div>
 		</div>
 	</div>

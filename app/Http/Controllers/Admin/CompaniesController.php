@@ -52,7 +52,6 @@ class CompaniesController extends Controller
         $cities = \App\City::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $categories = \App\Category::get()->pluck('name', 'id');
 
-
         return view('admin.companies.create', compact('cities', 'categories'));
     }
 
@@ -70,8 +69,6 @@ class CompaniesController extends Controller
         $request = $this->saveFiles($request);
         $company = Company::create($request->all());
         $company->categories()->sync(array_filter((array)$request->input('categories')));
-
-
 
         return redirect()->route('admin.companies.index');
     }
@@ -91,7 +88,6 @@ class CompaniesController extends Controller
         
         $cities = \App\City::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $categories = \App\Category::get()->pluck('name', 'id');
-
 
         $company = Company::findOrFail($id);
 
@@ -114,8 +110,6 @@ class CompaniesController extends Controller
         $company = Company::findOrFail($id);
         $company->update($request->all());
         $company->categories()->sync(array_filter((array)$request->input('categories')));
-
-
 
         return redirect()->route('admin.companies.index');
     }

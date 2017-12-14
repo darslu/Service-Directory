@@ -90,7 +90,10 @@
                             <div class="category-block">
                                 <div class="header">
                                     <i class="{{ $categoryAll->icon }} icon-bg-{{ $categoryAll->id }}"></i> 
-                                    <h4><a href="categories/{{ $categoryAll->id }}">{{ $categoryAll->name }}</a></h4>
+                                    <h4>
+                                        <a href="categories/{{ $categoryAll->id }}">{{ $categoryAll->name }} <p style="display: inline">({{ $categoryAll->companies->count() }})</p></a> 
+                                        
+                                    </h4>
                                 </div>
                                 <ul class="category-list">
                                     @foreach ( $categoryAll->companies->shuffle()->take(4) as $singleCompany)
