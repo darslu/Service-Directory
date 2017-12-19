@@ -66,11 +66,11 @@
 					<div class="product-meta">
 						<ul class="list-inline">
                             @foreach ($company->categories as $singleCategories)
-                                <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category<a href="{{ url('/categories/' . $singleCategories->id) }}">
+                                <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category<a href="{{ route('category', ['id' => $singleCategories->id]) }}">
                                         <span class="label label-info label-many">{{ $singleCategories->name }}</span>
                                 </a></li>
                             @endforeach
-							<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location<a href="{{ url('/search?search=&categories=&city_id=' . $company->city->id) }}">{{ $company->city->name }}</a></li>
+							<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location<a href="{{ route('search', ['id' => $company->city->id]) }}">{{ $company->city->name }}</a></li>
 						</ul>
 					</div>
                     <br>
@@ -98,7 +98,7 @@
 						<h4>Other companies in this category</h4>
                         @foreach ($company->categories as $singleCategories)
                             @foreach ($singleCategories->companies->shuffle()->take(10) as $singleCompany)
-                            <li><a href="{{ url('/company/' . $singleCompany->id) }}">{{ $singleCompany->name }}</a></li>
+                            <li><a href="{{ route('company', ['id' => $singleCompany->id]) }}">{{ $singleCompany->name }}</a></li>
                             @endforeach
                         @endforeach
 					</div>

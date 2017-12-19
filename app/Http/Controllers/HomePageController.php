@@ -33,12 +33,12 @@ class HomePageController extends Controller
         return view('mainTable.search', compact('companies', 'cities', 'categories', 'categoriesAll'));
     }
 
-    public function company(Request $request, $id)
+    public function company(Request $request, Company $company)
     {
         $cities = City::get()->pluck('name', 'id');
         $categories = Category::get()->pluck('name', 'id');
         $categoriesAll = Category::all();
-        $company = Company::find($id);
+
 
         return view('mainTable.company', compact('cities', 'categories', 'categoriesAll', 'company'));
     }

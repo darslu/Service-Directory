@@ -91,13 +91,13 @@
                                 <div class="header">
                                     <i class="{{ $categoryAll->icon }} icon-bg-{{ $categoryAll->id }}"></i> 
                                     <h4>
-                                        <a href="categories/{{ $categoryAll->id }}">{{ $categoryAll->name }} <p style="display: inline">({{ $categoryAll->companies->count() }})</p></a> 
+                                        <a href="{{ route('category', ['id' => $categoryAll->id]) }}">{{ $categoryAll->name }} <p style="display: inline">({{ $categoryAll->companies->count() }})</p></a> 
                                         
                                     </h4>
                                 </div>
                                 <ul class="category-list">
                                     @foreach ( $categoryAll->companies->shuffle()->take(4) as $singleCompany)
-                                        <li><a href="company/{{$singleCompany->id}}">{{ $singleCompany->name}} </a></li>
+                                        <li><a href="{{ route('company', ['id' => $singleCompany->id]) }}">{{ $singleCompany->name}} </a></li>
                                     @endforeach
                                 </ul>
                             </div>

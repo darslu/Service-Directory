@@ -1,8 +1,8 @@
 <?php
  Route::get('/', 'HomePageController@index');
- Route::get('search', 'HomePageController@table');
- Route::get('categories/{id}', 'HomePageController@show');
- Route::get('company/{id}', 'HomePageController@company');
+ Route::get('search', 'HomePageController@table')->name('search');
+ Route::get('categories/{id}', 'HomePageController@show')->name('category');
+ Route::get('company/{company}', 'HomePageController@company')->name('company');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
