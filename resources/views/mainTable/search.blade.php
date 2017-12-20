@@ -73,7 +73,7 @@
                         <h4 class="widget-header">All Category</h4>
                         <ul class="category-list">
                             @foreach ( $categoriesAll as $categoryAll)
-                                <li><a href="{{ route('category', ['id' => $categoryAll->id]) }} ">{{ $categoryAll->name}} <span>{{$categoryAll->companies->count()}}</span></a></li>
+                                <li><a href="{{ route('category', [$categoryAll->id]) }} ">{{ $categoryAll->name}} <span>{{$categoryAll->companies->count()}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -94,11 +94,11 @@
                                                 @if($company->logo)<a href="{{ asset(env('UPLOAD_PATH').'/' . $company->logo) }}" target="_blank"><img class="card-img-top img-fluid" src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $company->logo) }}"/></a>@endif
                                             </div>
                                             <div class="card-body">
-                                                <h4 class="card-title"><a href="{{ route('company', ['id' => $company->id]) }}">{{$company->name}}</a></h4>
+                                                <h4 class="card-title"><a href="{{ route('company', [$company->id]) }}">{{$company->name}}</a></h4>
                                                 @foreach ($company->categories as $singleCategories)
                                                     <ul class="list-inline product-meta">
                                                         <li class="list-inline-item">
-                                                            <a href="{{ route('category', ['id' => $singleCategories->id]) }}"><i class="fa fa-folder-open-o"></i>{{ $singleCategories->name }}</a>
+                                                            <a href="{{ route('category', [$singleCategories->id]) }}"><i class="fa fa-folder-open-o"></i>{{ $singleCategories->name }}</a>
                                                         </li>
                                                     </ul>
                                                 @endforeach

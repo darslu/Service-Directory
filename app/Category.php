@@ -18,9 +18,12 @@ class Category extends Model
 
     public function companies()
     {
-        return $this->belongsToMany(Company::class, 'category_company')->withTrashed();
+        return $this->belongsToMany(Company::class, 'category_company');
     }
     
-    
+    public static function categories()
+    {
+        return static::pluck('name', 'id');
+    }
     
 }

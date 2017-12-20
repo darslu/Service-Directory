@@ -2,60 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\HomePage;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Category;
-use App\City;
-use App\Http\Controllers\Traits\FileUploadTrait;
+
 
 
 class HomePageController extends Controller
 {
 
-    public function index( Request $request)
+    public function index()
     {
-        $cities = City::get()->pluck('name', 'id');
-        $categories = Category::get()->pluck('name', 'id');
-        $categoriesAll = Category::all();
-        
-
-        return view('mainTable.index', compact( 'cities', 'categories', 'categoriesAll'));
+        return view('mainTable.index');
     }
 
     public function table(Request $request)
     {
-        $cities = City::get()->pluck('name', 'id');
-        $categories = Category::get()->pluck('name', 'id');
-        $categoriesAll = Category::all();
         $companies = Company::filterByRequest($request)->paginate(9);
 
-        return view('mainTable.search', compact('companies', 'cities', 'categories', 'categoriesAll'));
+        return view('mainTable.search', compact('companies'));
     }
 
-    public function company(Request $request, Company $company)
+    public function company(Company $company)
     {
-        $cities = City::get()->pluck('name', 'id');
-        $categories = Category::get()->pluck('name', 'id');
-        $categoriesAll = Category::all();
-
-
-        return view('mainTable.company', compact('cities', 'categories', 'categoriesAll', 'company'));
+        return view('mainTable.company', compact ('company'));
     }
 
-    public function show(Request $request, $id)
+    public function show(Category $category)
     {
-        $cities = City::get()->pluck('name', 'id');
-        $categories = Category::get()->pluck('name', 'id');
-        $categoriesAll = Category::all();
-        $category = Category::find($id);
         $companies = Company::join('category_company', 'companies.id', 
         '=', 'category_company.company_id')
-        ->where('category_id', $id)
+        ->where('category_id', $category->id)
         ->paginate(9);
-        
-        
 
-        return view('mainTable.category', compact('companies', 'cities', 'categories', 'categoriesAll', 'category'));
+        return view('mainTable.category', compact('companies', 'category'));
     }
 }

@@ -16,6 +16,9 @@ class City extends Model
 
     protected $fillable = ['name'];
     
-    
+    public static function cities()
+    {
+        return static::pluck('name', 'id');
+    }
     
 }

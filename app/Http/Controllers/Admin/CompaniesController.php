@@ -49,8 +49,8 @@ class CompaniesController extends Controller
             return abort(401);
         }
         
-        $cities = \App\City::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $categories = \App\Category::get()->pluck('name', 'id');
+        $cities = \App\City::pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $categories = \App\Category::pluck('name', 'id');
 
         return view('admin.companies.create', compact('cities', 'categories'));
     }
@@ -86,8 +86,8 @@ class CompaniesController extends Controller
             return abort(401);
         }
         
-        $cities = \App\City::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $categories = \App\Category::get()->pluck('name', 'id');
+        $cities = \App\City::pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $categories = \App\Category::pluck('name', 'id');
 
         $company = Company::findOrFail($id);
 

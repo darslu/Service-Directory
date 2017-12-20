@@ -21,7 +21,7 @@
 @include('partialsMainTable.footer')
 
 
-@include('partialsMainTable.javascripts')
+
 
 </body>
 
