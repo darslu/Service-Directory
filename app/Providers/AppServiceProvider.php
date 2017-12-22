@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         view()->composer('*', function($view) {
-            $view->with('categories', \App\Category::categories());
-            $view->with('categoriesAll', \App\Category::all());
-            $view->with('cities', \App\City::cities());
+            $view->with('search_categories', \App\Category::categories());
+            $view->with('categories_all', \App\Category::all());
+            $view->with('search_cities', \App\City::cities());
             
         });
 

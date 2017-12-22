@@ -21,7 +21,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                {!! Form::select('categories', $categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
+                                {!! Form::select('categories', $search_categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('categories'))
                                     <p class="help-block">
@@ -30,7 +30,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                {!! Form::select('city_id', $cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
+                                {!! Form::select('city_id', $search_cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('city_id'))
                                     <p class="help-block">

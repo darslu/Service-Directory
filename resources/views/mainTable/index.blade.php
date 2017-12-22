@@ -31,7 +31,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                {!! Form::select('categories', $categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
+                                {!! Form::select('categories', $search_categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('categories'))
                                     <p class="help-block">
@@ -40,7 +40,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                {!! Form::select('city_id', $cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
+                                {!! Form::select('city_id', $search_cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('city_id'))
                                     <p class="help-block">
@@ -84,19 +84,19 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
 				</div>
                 <div class="row">
-                    @foreach ($categoriesAll->take(8) as $categoryAll)
+                    @foreach ($categories_all->take(8) as $category_all)
                         <!-- Category list -->
                         <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
                             <div class="category-block">
                                 <div class="header">
-                                    <i class="{{ $categoryAll->icon }} icon-bg-{{ $categoryAll->id }}"></i> 
+                                    <i class="{{ $category_all->icon }} icon-bg-{{ $category_all->id }}"></i> 
                                     <h4>
-                                        <a href="{{ route('category', [$categoryAll->id]) }}">{{ $categoryAll->name }} <p style="display: inline">({{ $categoryAll->companies->count() }})</p></a> 
+                                        <a href="{{ route('category', [$category_all->id]) }}">{{ $category_all->name }} <p style="display: inline">({{ $category_all->companies->count() }})</p></a> 
                                         
                                     </h4>
                                 </div>
                                 <ul class="category-list">
-                                    @foreach ( $categoryAll->companies->shuffle()->take(4) as $singleCompany)
+                                    @foreach ( $category_all->companies->shuffle()->take(4) as $singleCompany)
                                         <li><a href="{{ route('company', [$singleCompany->id]) }}">{{ $singleCompany->name}} </a></li>
                                     @endforeach
                                 </ul>
